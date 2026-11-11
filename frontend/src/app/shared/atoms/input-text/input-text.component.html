@@ -1,0 +1,14 @@
+<label class="field-label" [for]="controlId">{{ label }}</label>
+<input
+  class="form-input"
+  [id]="controlId"
+  [type]="type"
+  [attr.autocomplete]="autocomplete"
+  [attr.maxlength]="maxLength"
+  [attr.min]="min"
+  [attr.placeholder]="placeholder || null"
+  [value]="value"
+  [disabled]="disabled"
+  (input)="handleInput($event)"
+  (blur)="handleBlur()"
+/>

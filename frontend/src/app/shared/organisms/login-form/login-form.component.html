@@ -1,0 +1,19 @@
+<form class="formulario" [formGroup]="form" (ngSubmit)="ingresar()" novalidate>
+  @if (sesionExpirada) {
+    <atom-alert tipo="info">Su sesión expiró. Inicie sesión de nuevo para continuar.</atom-alert>
+  }
+  <molecule-form-field [error]="errorDe('usuario')">
+    <atom-input-text id="login-usuario" label="Usuario (cédula o nombre de usuario)" autocomplete="username" formControlName="usuario" />
+  </molecule-form-field>
+  <molecule-form-field [error]="errorDe('clave')">
+    <atom-input-text id="login-clave" label="Contraseña" type="password" autocomplete="current-password" formControlName="clave" />
+  </molecule-form-field>
+
+  @if (error()) {
+    <atom-alert tipo="error">{{ error() }}</atom-alert>
+  }
+
+  <div class="acciones">
+    <atom-button [label]="enviando() ? 'Ingresando…' : 'Iniciar sesión'" [disabled]="enviando()" [fullWidth]="true" />
+  </div>
+</form>

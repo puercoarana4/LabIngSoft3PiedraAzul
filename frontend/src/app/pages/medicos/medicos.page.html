@@ -1,0 +1,8 @@
+<template-main-layout titulo="Médicos" subtitulo="Registre nuevos médicos y consulte el equipo de la clínica." dosColumnas>
+  <section lateral class="tarjeta">
+    <h2>Registrar médico</h2>
+    <organismo-medico-form (registrado)="cargar()" />
+  </section>
+
+  <organismo-medicos-list [filas]="medicos()" [cargando]="cargando()" mostrarDatosPersonales />
+</template-main-layout>

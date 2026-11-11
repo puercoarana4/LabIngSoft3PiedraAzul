@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+.item {
+  align-items: center;
+  border-radius: 0.6rem;
+  color: var(--texto);
+  display: flex;
+  font-weight: 600;
+  gap: var(--esp-2);
+  padding: 0.6rem 0.85rem;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.item:hover {
+  background: var(--azul-100);
+  color: var(--azul-700);
+}
+
+.item.activo {
+  background: var(--azul-700);
+  color: #fff;
+}

@@ -1,0 +1,42 @@
+<template-main-layout>
+  <section class="hero">
+    <div class="hero-texto">
+      <p class="etiqueta">Atención médica de confianza</p>
+      <h1>Su salud, en manos de especialistas</h1>
+      <p>
+        En la Clínica Piedra Azul gestionamos sus citas de forma sencilla. Consulte nuestros médicos y, si ya es
+        paciente, revise sus citas con su cuenta.
+      </p>
+      @if (auth.estaAutenticado()) {
+        <a class="boton-hero" [routerLink]="auth.rutaInicio()">Ir a mi panel</a>
+      } @else {
+        <a class="boton-hero" routerLink="/login">Iniciar sesión</a>
+      }
+    </div>
+    <img class="hero-imagen" src="hero.png" alt="Dos médicos de la Clínica Piedra Azul" width="520" height="347" />
+  </section>
+
+  <section class="beneficios" aria-label="Por qué elegirnos">
+    <molecule-info-card icono="estetoscopio" titulo="Médicos especialistas">
+      Un equipo con experiencia en varias especialidades.
+    </molecule-info-card>
+    <molecule-info-card icono="calendario" titulo="Citas claras">
+      Consulte la fecha, la hora y el médico de cada cita.
+    </molecule-info-card>
+    <molecule-info-card icono="escudo" titulo="Datos protegidos">
+      Cada paciente ve únicamente su propia información.
+    </molecule-info-card>
+  </section>
+
+  <section class="medicos">
+    @if (error()) {
+      <p class="aviso">No se pudo cargar el listado de médicos. Revise que el backend esté encendido.</p>
+    }
+    <organismo-medicos-list
+      titulo="Nuestros médicos"
+      subtitulo="Profesionales que atienden en la clínica"
+      [filas]="medicos()"
+      [cargando]="cargando()"
+    />
+  </section>
+</template-main-layout>

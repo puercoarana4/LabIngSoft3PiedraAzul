@@ -1,0 +1,21 @@
+<div class="estructura">
+  <organismo-site-header />
+
+  <main class="contenido">
+    @if (titulo) {
+      <header class="encabezado-pagina">
+        <h1>{{ titulo }}</h1>
+        @if (subtitulo) {
+          <p>{{ subtitulo }}</p>
+        }
+      </header>
+    }
+
+    <div class="grilla" [class.dos-columnas]="dosColumnas">
+      <aside class="lateral"><ng-content select="[lateral]" /></aside>
+      <section class="principal"><ng-content /></section>
+    </div>
+  </main>
+
+  <organismo-site-footer />
+</div>

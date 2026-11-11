@@ -1,0 +1,30 @@
+<div class="contenedor-tabla" role="region" tabindex="0" aria-label="Tabla de datos">
+  <table class="tabla">
+    <thead>
+      <tr>
+        @for (columna of columnas; track columna.clave) {
+          <th scope="col">{{ columna.etiqueta }}</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @if (cargando) {
+        <tr class="estado">
+          <td [attr.colspan]="columnas.length">Cargando…</td>
+        </tr>
+      } @else if (filas.length === 0) {
+        <tr class="estado">
+          <td [attr.colspan]="columnas.length">{{ mensajeVacio }}</td>
+        </tr>
+      } @else {
+        @for (fila of filas; track $index) {
+          <tr class="fila" [style.animation-delay.ms]="$index * 45">
+            @for (columna of columnas; track columna.clave) {
+              <td [attr.data-etiqueta]="columna.etiqueta">{{ valor(fila, columna) }}</td>
+            }
+          </tr>
+        }
+      }
+    </tbody>
+  </table>
+</div>

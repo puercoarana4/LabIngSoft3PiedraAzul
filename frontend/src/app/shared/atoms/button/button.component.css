@@ -1,0 +1,50 @@
+:host {
+  display: inline-block;
+}
+
+:host(.ancho-total) {
+  display: block;
+}
+
+.btn {
+  border: 0;
+  border-radius: 0.65rem;
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 2.75rem;
+  padding: 0.65rem 1.25rem;
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.btn-primary {
+  background: var(--azul-700);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: var(--azul-100);
+  color: var(--azul-700);
+}
+
+.btn-danger {
+  background: var(--error);
+  color: #fff;
+}
+
+.btn:hover:not(:disabled) {
+  box-shadow: 0 8px 16px rgba(15, 48, 87, 0.22);
+  transform: translateY(-2px);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.w-100 {
+  width: 100%;
+}

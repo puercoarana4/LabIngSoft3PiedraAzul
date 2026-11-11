@@ -1,0 +1,25 @@
+<form class="formulario" [formGroup]="form" (ngSubmit)="guardar()" novalidate>
+  <molecule-form-field [error]="errorDe('pacienteId')">
+    <atom-select id="cita-paciente" label="Paciente" placeholder="Seleccione un paciente" [options]="opcionesPacientes()" formControlName="pacienteId" />
+  </molecule-form-field>
+  <molecule-form-field [error]="errorDe('medicoId')">
+    <atom-select id="cita-medico" label="Médico" placeholder="Seleccione un médico" [options]="opcionesMedicos()" formControlName="medicoId" />
+  </molecule-form-field>
+  <molecule-form-field [error]="errorDe('fechaHora')">
+    <atom-input-text id="cita-fecha" label="Fecha y hora" type="datetime-local" formControlName="fechaHora" />
+  </molecule-form-field>
+  <molecule-form-field [error]="errorDe('motivo')">
+    <atom-input-text id="cita-motivo" label="Motivo de la consulta" placeholder="Ej: control general" [maxLength]="200" formControlName="motivo" />
+  </molecule-form-field>
+
+  @if (exito()) {
+    <atom-alert tipo="exito">{{ exito() }}</atom-alert>
+  }
+  @if (error()) {
+    <atom-alert tipo="error">{{ error() }}</atom-alert>
+  }
+
+  <div class="acciones">
+    <atom-button [label]="enviando() ? 'Guardando…' : 'Crear cita'" [disabled]="enviando()" [fullWidth]="true" />
+  </div>
+</form>

@@ -1,0 +1,41 @@
+:host {
+  display: block;
+}
+
+.field-label {
+  color: var(--texto);
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: var(--esp-1);
+}
+
+.form-input {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 0.6rem;
+  color: var(--texto);
+  min-height: 2.75rem;
+  padding: 0.55rem 0.8rem;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+  width: 100%;
+}
+
+.form-input:hover:not(:disabled) {
+  border-color: var(--azul-500);
+}
+
+.form-input:focus {
+  border-color: var(--azul-500);
+  box-shadow: 0 0 0 3px rgba(47, 128, 200, 0.2);
+  outline: none;
+}
+
+.form-input:disabled {
+  background: var(--fondo);
+}
+
+/* Angular marca el elemento host con estas clases cuando el control es de un formulario reactivo */
+:host(.ng-invalid.ng-touched) .form-input {
+  border-color: var(--error);
+}

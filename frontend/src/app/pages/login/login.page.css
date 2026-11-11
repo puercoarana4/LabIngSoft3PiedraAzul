@@ -1,0 +1,8 @@
+:host {
+  display: block;
+}
+
+.caja-login {
+  margin: 0 auto;
+  max-width: 460px;
+}

@@ -1,0 +1,9 @@
+<section class="bloque">
+  <header class="encabezado">
+    <h2>{{ titulo }}</h2>
+    @if (subtitulo) {
+      <p>{{ subtitulo }}</p>
+    }
+  </header>
+  <atom-table [columnas]="columnas" [filas]="filas" [mensajeVacio]="mensajeVacio" [cargando]="cargando" />
+</section>

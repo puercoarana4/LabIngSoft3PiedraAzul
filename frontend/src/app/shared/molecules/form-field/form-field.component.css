@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+.field-error {
+  animation: aparecer 200ms ease;
+  color: var(--error);
+  font-size: 0.82rem;
+  margin: var(--esp-1) 0 0;
+}
+
+.field-error.verificando {
+  color: var(--texto-suave);
+}

@@ -1,0 +1,79 @@
+:host {
+  display: block;
+}
+
+.hero {
+  align-items: center;
+  background: linear-gradient(135deg, var(--azul-900), var(--azul-700));
+  border-radius: 1.25rem;
+  color: #fff;
+  display: grid;
+  gap: var(--esp-5);
+  grid-template-columns: minmax(0, 1fr);
+  overflow: hidden;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: clamp(1.7rem, 4.5vw, 2.6rem);
+}
+
+.hero p {
+  color: #d7e6f4;
+}
+
+.etiqueta {
+  color: #7fe0d8 !important;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.boton-hero {
+  background: var(--turquesa);
+  border-radius: 0.65rem;
+  color: #fff;
+  display: inline-block;
+  font-weight: 700;
+  margin-top: var(--esp-2);
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.boton-hero:hover {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.hero-imagen {
+  display: none;
+  height: auto;
+  max-width: 100%;
+}
+
+.beneficios {
+  display: grid;
+  gap: var(--esp-4);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: var(--esp-5) 0;
+}
+
+.aviso {
+  background: var(--error-fondo);
+  border-radius: 0.6rem;
+  color: var(--error);
+  padding: 0.7rem 1rem;
+}
+
+@media (min-width: 900px) {
+  .hero {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  .hero-imagen {
+    display: block;
+  }
+}

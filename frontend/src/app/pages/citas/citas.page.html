@@ -1,0 +1,8 @@
+<template-main-layout titulo="Citas médicas" subtitulo="Cree citas y revise las de todos los pacientes." dosColumnas>
+  <section lateral class="tarjeta">
+    <h2>Crear cita</h2>
+    <organismo-cita-form [pacientes]="pacientes()" [medicos]="medicos()" (registrado)="cargarCitas()" />
+  </section>
+
+  <organismo-citas-list titulo="Citas de todos los pacientes" [filas]="citas()" [cargando]="cargando()" />
+</template-main-layout>

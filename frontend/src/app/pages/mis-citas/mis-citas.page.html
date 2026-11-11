@@ -1,0 +1,9 @@
+<template-main-layout titulo="Mis citas" subtitulo="Estas son sus citas médicas programadas.">
+  <organismo-citas-list
+    titulo="Mis citas médicas"
+    [filas]="citas()"
+    [cargando]="cargando()"
+    [mostrarPaciente]="false"
+    mensajeVacio="Todavía no tiene citas programadas"
+  />
+</template-main-layout>

@@ -1,0 +1,34 @@
+<form class="formulario" [formGroup]="form" (ngSubmit)="guardar()" novalidate>
+  <molecule-form-field [error]="errorDe('cedula')">
+    <atom-input-text id="paciente-cedula" label="Cédula" placeholder="Solo números" [maxLength]="12" formControlName="cedula" />
+  </molecule-form-field>
+  <molecule-form-field [error]="errorDe('nombres')">
+    <atom-input-text id="paciente-nombres" label="Nombres" placeholder="Ingrese los nombres" formControlName="nombres" />
+  </molecule-form-field>
+  <molecule-form-field [error]="errorDe('apellidos')">
+    <atom-input-text id="paciente-apellidos" label="Apellidos" placeholder="Ingrese los apellidos" formControlName="apellidos" />
+  </molecule-form-field>
+  <molecule-form-field [error]="errorDe('email')">
+    <atom-input-text id="paciente-email" label="Correo electrónico" type="email" placeholder="nombre@correo.com" formControlName="email" />
+  </molecule-form-field>
+  <molecule-form-field [error]="errorDe('telefono')">
+    <atom-input-text id="paciente-telefono" label="Teléfono" type="tel" placeholder="3001234567" [maxLength]="10" formControlName="telefono" />
+  </molecule-form-field>
+  <molecule-form-field [error]="errorDe('fechaNacimiento')">
+    <atom-input-text id="paciente-nacimiento" label="Fecha de nacimiento" type="date" formControlName="fechaNacimiento" />
+  </molecule-form-field>
+  <molecule-form-field [error]="errorDe('password')">
+    <atom-input-text id="paciente-password" label="Contraseña inicial" type="password" autocomplete="new-password" placeholder="Mínimo 6 caracteres" formControlName="password" />
+  </molecule-form-field>
+
+  @if (exito()) {
+    <atom-alert tipo="exito">{{ exito() }}</atom-alert>
+  }
+  @if (error()) {
+    <atom-alert tipo="error">{{ error() }}</atom-alert>
+  }
+
+  <div class="acciones">
+    <atom-button [label]="enviando() ? 'Guardando…' : 'Registrar paciente'" [disabled]="enviando()" [fullWidth]="true" />
+  </div>
+</form>

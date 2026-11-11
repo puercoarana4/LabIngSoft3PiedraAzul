@@ -1,0 +1,68 @@
+:host {
+  display: block;
+}
+
+.estructura {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contenido {
+  animation: aparecer 400ms ease;
+  flex: 1;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: var(--esp-6) clamp(1rem, 4vw, 2rem) 0;
+  width: 100%;
+}
+
+.encabezado-pagina {
+  margin-bottom: var(--esp-5);
+}
+
+.encabezado-pagina h1 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  margin-bottom: var(--esp-1);
+}
+
+.encabezado-pagina p {
+  color: var(--texto-suave);
+  margin: 0;
+  max-width: 60ch;
+}
+
+/* Celular: una sola columna */
+.grilla {
+  display: grid;
+  gap: var(--esp-5);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.lateral:empty {
+  display: none;
+}
+
+.principal {
+  min-width: 0;
+}
+
+/* Tableta: se mantiene una columna pero con mas aire */
+@media (min-width: 641px) {
+  .contenido {
+    padding-top: var(--esp-7);
+  }
+}
+
+/* Escritorio: formulario a la izquierda y listado a la derecha */
+@media (min-width: 1024px) {
+  .grilla.dos-columnas {
+    align-items: start;
+    grid-template-columns: minmax(300px, 380px) minmax(0, 1fr);
+  }
+
+  .grilla.dos-columnas .lateral {
+    position: sticky;
+    top: 6rem;
+  }
+}

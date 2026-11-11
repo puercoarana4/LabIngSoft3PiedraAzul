@@ -1,0 +1,41 @@
+<header class="cabecera">
+  <div class="barra">
+    <a class="marca" routerLink="/" (click)="cerrarMenu()" aria-label="Clínica Piedra Azul, inicio">
+      <img src="logo.png" alt="" width="44" height="44" />
+      <span class="nombre">Clínica <strong>Piedra Azul</strong></span>
+    </a>
+
+    <button
+      type="button"
+      class="hamburguesa"
+      (click)="alternarMenu()"
+      [attr.aria-expanded]="menuAbierto()"
+      aria-controls="menu-principal"
+      aria-label="Abrir o cerrar el menú"
+    >
+      <atom-icon [nombre]="menuAbierto() ? 'cerrar' : 'menu'" [tamano]="26" />
+    </button>
+
+    <nav id="menu-principal" class="menu" [class.abierto]="menuAbierto()" aria-label="Navegación principal" (click)="cerrarMenu()">
+      <molecule-menu-item ruta="/" etiqueta="Inicio" icono="cruz" [exacto]="true" />
+
+      @if (auth.esAdmin()) {
+        <molecule-menu-item ruta="/admin/citas" etiqueta="Citas" icono="calendario" />
+        <molecule-menu-item ruta="/admin/medicos" etiqueta="Médicos" icono="estetoscopio" />
+        <molecule-menu-item ruta="/admin/pacientes" etiqueta="Pacientes" icono="usuarios" />
+      }
+      @if (auth.esPaciente()) {
+        <molecule-menu-item ruta="/paciente/mis-citas" etiqueta="Mis citas" icono="calendario" />
+      }
+
+      @if (auth.estaAutenticado()) {
+        <div class="sesion">
+          <span class="usuario"><atom-icon nombre="usuario" [tamano]="18" /> {{ auth.sesion()?.username }}</span>
+          <atom-button type="button" color="secondary" label="Cerrar sesión" (click)="cerrarSesion()" />
+        </div>
+      } @else {
+        <molecule-menu-item ruta="/login" etiqueta="Iniciar sesión" icono="usuario" />
+      }
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,40 @@
+:host {
+  display: block;
+}
+
+.info {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  height: 100%;
+  padding: var(--esp-5);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.info:hover {
+  box-shadow: var(--sombra-fuerte);
+  transform: translateY(-4px);
+}
+
+.icono {
+  align-items: center;
+  background: var(--turquesa-claro);
+  border-radius: 50%;
+  color: var(--turquesa);
+  display: inline-flex;
+  height: 3.2rem;
+  justify-content: center;
+  margin-bottom: var(--esp-3);
+  width: 3.2rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin-bottom: var(--esp-1);
+}
+
+p {
+  color: var(--texto-suave);
+  font-size: 0.93rem;
+  margin: 0;
+}

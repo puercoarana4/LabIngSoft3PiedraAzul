@@ -1,0 +1,29 @@
+:host {
+  display: block;
+}
+
+.alerta {
+  animation: aparecer 250ms ease;
+  border: 1px solid transparent;
+  border-radius: 0.6rem;
+  font-size: 0.93rem;
+  padding: 0.7rem 1rem;
+}
+
+.alerta-exito {
+  background: var(--exito-fondo);
+  border-color: #a8dcc4;
+  color: var(--exito);
+}
+
+.alerta-error {
+  background: var(--error-fondo);
+  border-color: #f0b7b0;
+  color: var(--error);
+}
+
+.alerta-info {
+  background: var(--azul-100);
+  border-color: #b5d5ee;
+  color: var(--azul-700);
+}

@@ -1,0 +1,6 @@
+<div class="form-field">
+  <ng-content />
+  @if (error) {
+    <p class="field-error" [class.verificando]="error.startsWith('Verificando')" role="alert">{{ error }}</p>
+  }
+</div>

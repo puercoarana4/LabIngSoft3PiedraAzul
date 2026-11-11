@@ -1,0 +1,8 @@
+<template-main-layout titulo="Pacientes" subtitulo="Registre pacientes nuevos y consulte a quienes ya están en la clínica." dosColumnas>
+  <section lateral class="tarjeta">
+    <h2>Registrar paciente</h2>
+    <organismo-paciente-form (registrado)="cargar()" />
+  </section>
+
+  <organismo-pacientes-list [filas]="pacientes()" [cargando]="cargando()" />
+</template-main-layout>
